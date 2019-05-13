@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UsuarioProvider } from '../../providers/usuario/usuario';
+
 
 /**
  * Generated class for the LoginPage page.
@@ -10,16 +12,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 
 
- /**
-     * Valida la existencia del usuario en la base de datos
-     *
-     * @static
-     * @param String    usuario de inicio de sesion
-     *
-     * @throws Exception  si no se puede encontrar ningun registro
-     *
-     * @return object     resultado de la consulta
-     */
+
 @IonicPage()
 @Component({
   selector: 'page-login',

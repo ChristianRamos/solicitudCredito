@@ -163,6 +163,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__ = __webpack_require__(190);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_splash_screen__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__conf_ENV__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_usuario_usuario__ = __webpack_require__(272);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -179,6 +180,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 // Environment configuration
+
 
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -210,7 +212,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_8__ionic_native_splash_screen__["a" /* SplashScreen */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_9__conf_ENV__["a" /* ENV */]
+                __WEBPACK_IMPORTED_MODULE_9__conf_ENV__["a" /* ENV */],
+                __WEBPACK_IMPORTED_MODULE_10__providers_usuario_usuario__["a" /* UsuarioProvider */]
             ]
         })
     ], AppModule);
@@ -343,6 +346,63 @@ var ENV = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 272:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsuarioProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__conf_ENV__ = __webpack_require__(270);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/*
+  Generated class for the UsuarioProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var UsuarioProvider = /** @class */ (function () {
+    function UsuarioProvider(http, env) {
+        this.http = http;
+        this.env = env;
+        this.environment = env.getEnv();
+        this.url = this.environment.API_URL + "/cuenta";
+    }
+    /**
+    * Valida la existencia del usuario en la base de datos
+    *
+    * @param Object    Datos del usuario
+    *
+    * @return promise     respuesta del servidor
+    */
+    UsuarioProvider.prototype.registroUsuario = function (usuario) {
+        var accion = "/registro/";
+        console.log(this.url);
+        //  return this.http.post<ResponseObjectInterface>( this.url + accion, usuario );
+    };
+    UsuarioProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__conf_ENV__["a" /* ENV */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__conf_ENV__["a" /* ENV */]) === "function" && _b || Object])
+    ], UsuarioProvider);
+    return UsuarioProvider;
+    var _a, _b;
+}());
+
+//# sourceMappingURL=usuario.js.map
+
+/***/ }),
+
 /***/ 99:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -367,16 +427,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-/**
-    * Valida la existencia del usuario en la base de datos
-    *
-    * @static
-    * @param String    usuario de inicio de sesion
-    *
-    * @throws Exception  si no se puede encontrar ningun registro
-    *
-    * @return object     resultado de la consulta
-    */
 var LoginPage = /** @class */ (function () {
     function LoginPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
@@ -466,9 +516,10 @@ var LoginPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-login',template:/*ion-inline-start:"/home/christian/Escritorio/prueba/solicitudCredito/src/pages/login/login.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Registro de usuario</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <div padding-top class="login">\n    <div class="logo" text-center>\n        <h2 ion-text color="light">BIENVENIDO</h2>\n    </div>\n    <ion-list inset>\n      <ion-item color="primary">\n        <ion-icon name="body" item-start></ion-icon>\n        <ion-input type="text" placeholder="Nombres" [(ngModel)]="usuario.nombres"></ion-input>\n      </ion-item>\n      <ion-item color="primary">\n        <ion-icon name="body" item-start></ion-icon>\n        <ion-input type="text" placeholder="Apellidos" [(ngModel)]="usuario.apellidos"></ion-input>\n      </ion-item>\n      <ion-item color="primary">\n        <ion-icon name="card" item-start></ion-icon>\n        <ion-input type="text" placeholder="No. identificación" [(ngModel)]="usuario.identificacion"></ion-input>\n      </ion-item>\n      <ion-item color="">\n        <ion-icon name="calendar" item-start></ion-icon>\n        <ion-label>Fecha de nacimiento</ion-label>\n        <ion-datetime displayFormat="DD-MM-YYYY"  [(ngModel)]="usuario.fechaNacimiento"></ion-datetime>\n      </ion-item>\n    </ion-list>\n    <div class="cont-bton">\n      <div class="alerta"  text-center>\n        {{mensaje}}\n      </div>\n      <button ion-button block class="bton-sesion" (click)="registrarUsuario()">\n        <ion-icon name="md-log-in" color="favorite"></ion-icon>\n        Registrarse\n      </button>\n    </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/home/christian/Escritorio/prueba/solicitudCredito/src/pages/login/login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object])
     ], LoginPage);
     return LoginPage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=login.js.map

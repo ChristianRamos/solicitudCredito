@@ -12,6 +12,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 // Environment configuration
 import { ENV } from '../conf/ENV';
+import { UsuarioProvider } from '../providers/usuario/usuario';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { ENV } from '../conf/ENV';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ENV
+    ENV,
+    UsuarioProvider
   ]
 })
 export class AppModule {}
