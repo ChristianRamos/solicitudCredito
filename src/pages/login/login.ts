@@ -23,7 +23,7 @@ export class LoginPage {
   public mensaje: any = "";
   public error: any = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private usuarioProvider: UsuarioProvider) {
   }
 
   ionViewDidLoad() {
@@ -46,7 +46,12 @@ export class LoginPage {
         "lastname": this.usuario.apellidos,
         "identification": this.usuario.identificacion
       };
-      console.log( datos );
+      this.usuarioProvider.registroUsuario( datos ).subscribe(
+        ( data ) => { // Success
+          console.log( data );
+        }
+      );
+
     }else{
       this.mensaje = validacion[1];
     }

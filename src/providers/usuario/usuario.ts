@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ENV } from '../../conf/ENV';
-import { Observable } from 'rxjs/Observable';
+//import { Observable } from 'rxjs/Observable';
 
 /*
   Generated class for the UsuarioProvider provider.
@@ -17,7 +17,7 @@ export class UsuarioProvider {
 
   constructor( private http: HttpClient, private env: ENV ) {
     this.environment = env.getEnv();
-    this.url = this.environment.API_URL + "/cuenta";
+    this.url = this.environment.API_URL;
   }
 
   /**
@@ -28,9 +28,9 @@ export class UsuarioProvider {
   * @return promise     respuesta del servidor
   */
   registroUsuario( usuario: any ){
-    var accion = "/registro/";
+
     console.log( this.url );
-  //  return this.http.post<ResponseObjectInterface>( this.url + accion, usuario );
+   return this.http.post( this.url , usuario );
   }
 
 }
