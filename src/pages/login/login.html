@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Registro de usuario</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div padding-top class="login">
+    <div class="logo" text-center>
+        <h2 ion-text color="light">BIENVENIDO</h2>
+    </div>
+    <ion-list inset>
+      <ion-item color="primary">
+        <ion-icon name="body" item-start></ion-icon>
+        <ion-input type="text" placeholder="Nombres" [(ngModel)]="usuario.nombres"></ion-input>
+      </ion-item>
+      <ion-item color="primary">
+        <ion-icon name="body" item-start></ion-icon>
+        <ion-input type="text" placeholder="Apellidos" [(ngModel)]="usuario.apellidos"></ion-input>
+      </ion-item>
+      <ion-item color="primary">
+        <ion-icon name="card" item-start></ion-icon>
+        <ion-input type="text" placeholder="No. identificación" [(ngModel)]="usuario.identificacion"></ion-input>
+      </ion-item>
+      <ion-item color="">
+        <ion-icon name="calendar" item-start></ion-icon>
+        <ion-label>Fecha de nacimiento</ion-label>
+        <ion-datetime displayFormat="DD-MM-YYYY"  [(ngModel)]="usuario.fechaNacimiento"></ion-datetime>
+      </ion-item>
+    </ion-list>
+    <div class="cont-bton">
+      <div class="alerta"  text-center>
+        {{mensaje}}
+      </div>
+      <button ion-button block class="bton-sesion" (click)="registrarUsuario()">
+        <ion-icon name="md-log-in" color="favorite"></ion-icon>
+        Registrarse
+      </button>
+    </div>
+  </div>
+</ion-content>
